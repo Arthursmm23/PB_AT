@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:./wheels.db
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        connection_provider_disables_autocommit: true
+
+  mail:
+    host: smtp.example.com
+    port: 587
+    username: seu-email@example.com
+    password: sua-senha
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+
+jwt:
+  secret: "suaChaveSuperSecretaComPeloMenos32Caracteres1234567890ABCDEF" # 256 bits (obrigatório para HS256)
+  expiration: 86400000  # 1 dia em milissegundos
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.example: debug # Adicione logging para seu pacote
