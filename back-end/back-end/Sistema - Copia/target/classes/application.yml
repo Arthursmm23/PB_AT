@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:./wheels.db
+    driver-class-name: org.sqlite.JDBC
+
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        connection_provider_disables_autocommit: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: cguilherme052@gmail.com
+    password: ytan frxk qabo qykp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+jwt:
+  secret: "suaChaveSuperSecretaComPeloMenos32Caracteres1234567890ABCDEF"
+  expiration: 86400000
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.example: debug
