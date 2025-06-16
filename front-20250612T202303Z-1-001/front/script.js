@@ -1,4 +1,4 @@
-// URL base da API
+
 const API_URL = 'http://localhost:8080';
 
 function showSection(sectionId) {
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ✅ Função para renderizar gráfico de pizza
+
 function renderTipoVeiculoChart() {
     const tipos = { Combustao: 0, Eletrico: 0, Hibrido: 0 };
 
