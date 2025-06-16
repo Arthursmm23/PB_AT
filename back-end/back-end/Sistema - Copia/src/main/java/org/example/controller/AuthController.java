@@ -39,7 +39,7 @@ public class AuthController {
         return ResponseEntity.ok(registrado);
     }
 
-    // DTO para requisição de login
+    
     public static class LoginRequest {
         private String email;
         private String senha;
@@ -50,7 +50,7 @@ public class AuthController {
         public void setSenha(String senha) { this.senha = senha; }
     }
 
-    // DTO para resposta de token
+
     public static class TokenResponse {
         private String token;
 
@@ -58,7 +58,7 @@ public class AuthController {
         public String getToken() { return token; }
     }
 
-    // DTO para erros
+    
     public static class ErrorResponse {
         private String mensagem;
         private LocalDateTime timestamp;
