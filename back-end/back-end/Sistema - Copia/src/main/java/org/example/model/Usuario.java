@@ -42,7 +42,7 @@ public class Usuario {
         }
     }
 
-    // Construtor para facilitar a criação
+    
     public Usuario(String nome, String email, String senha, String role) {
         this.nome = nome;
         this.email = email;
