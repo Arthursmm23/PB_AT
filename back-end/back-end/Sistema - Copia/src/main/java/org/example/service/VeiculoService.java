@@ -35,14 +35,14 @@ public class    VeiculoService {
         if (isNovo) {
             String emailUsuario = salvo.getUsuarioEmail();
 
-            // E-mail para o dono
+            
             emailService.enviarEmailSimples(
                     emailUsuario,
                     "Cadastro de veículo",
                     "Seu veículo foi registrado no sistema."
             );
 
-            // E-mail técnico para o mecânico
+            
             emailService.enviarEmailSimples(
                     EMAIL_MECANICO,
                     "Novo veículo registrado",
@@ -84,25 +84,25 @@ public class    VeiculoService {
         Veiculo veiculo = veiculoRepository.findById(placa)
                 .orElseThrow(() -> new RuntimeException("Veículo não encontrado"));
 
-        // Adiciona a manutenção ao veículo
+      
         veiculo.adicionarManutencao(manutencao);
 
-        // Atualiza a quilometragem atual se a da manutenção for maior
+       
         if (manutencao.getQuilometragem() > veiculo.getQuilometragemAtual()) {
             veiculo.setQuilometragemAtual(manutencao.getQuilometragem());
         }
 
-        // Salva o veículo já com a nova manutenção antes de verificar alertas
+      
         Veiculo salvo = veiculoRepository.save(veiculo);
 
-        // Envia e-mail ao dono do veículo
+       
         emailService.enviarEmailSimples(
                 salvo.getUsuarioEmail(),
                 "Aviso importante",
                 "Seu carro pode estar em apuros, entre em contato."
         );
 
-        // Agora sim, verifica alertas com base no estado atualizado do veículo
+       
         verificarAlertasDeQuilometragem(salvo);
 
         return salvo;
