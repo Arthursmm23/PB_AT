@@ -30,7 +30,7 @@ public class Veiculo {
     private Integer quilometragemAtual;
 
     @NotBlank
-    private String usuarioEmail; // Campo para o e-mail do usuário
+    private String usuarioEmail; 
 
     @OneToMany(mappedBy = "veiculo", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Manutencao> manutencoes = new ArrayList<>();
