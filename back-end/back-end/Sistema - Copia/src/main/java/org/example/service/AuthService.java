@@ -62,7 +62,7 @@ public class AuthService {
 
         Usuario salvo = usuarioRepository.save(usuario);
 
-        // Enviar e-mail de boas-vindas
+    
         try {
             emailUtil.enviarEmail(
                     salvo.getEmail(),
